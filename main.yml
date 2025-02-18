@@ -1,0 +1,5 @@
+---
+- name: Pre requisites
+  hosts: localhost
+  become: true
+  tasks: 
