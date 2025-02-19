@@ -67,7 +67,6 @@
     image: "{{ image_version[os_version | string] }}"
     state: started
     restart_policy: no
-    recreate: true
     # Ejecuta un comando para mantener el contenedor en ejecución (puedes ajustarlo según necesites)
     command: "tail -f /dev/null"
     volumes:
