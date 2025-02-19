@@ -52,6 +52,14 @@
   environment: "{{ docker_env }}"
   register: pull_result
 
+
+- name: "[CONTAINER] Remove existing container if exists"
+  community.docker.docker_container:
+    name: "{{ container_name | default('ks_validator_container') }}"
+    state: absent
+  environment: "{{ docker_env }}"
+  ignore_errors: yes
+
 - name: "[CONTAINER] Create container for Kickstart validation"
   docker_container:
     name: "{{ container_name | default('ks_validator_container') }}"
