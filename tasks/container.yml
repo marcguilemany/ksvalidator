@@ -36,10 +36,18 @@
   environment: "{{ docker_env }}"
   register: login_result
 
+# - name: "[CONTAINER] Pull the RHEL image from Red Hat Container Registry"
+#   docker_image:
+#     name: "{{ image_version }}"
+#     tag: "{{ tag_version }}"
+#     source: pull
+#   environment: "{{ docker_env }}"
+#   register: pull_result
+
 - name: "[CONTAINER] Pull the RHEL image from Red Hat Container Registry"
   docker_image:
     name: "{{ image_version }}"
-    tag: "{{ tag_version }}"
+    tag: latest
     source: pull
   environment: "{{ docker_env }}"
   register: pull_result
