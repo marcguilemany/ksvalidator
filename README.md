@@ -6,6 +6,12 @@ Accept version rhel 8, 9 and 10
 create a container for validate your ks
 
 
+Dependencies:
+
+  collections:
+    - community.docker
+
+Ansible minimal version: 2.12
 
 Use playbook:
 
