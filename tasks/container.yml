@@ -55,7 +55,8 @@
 - name: "[CONTAINER] Create container for Kickstart validation"
   docker_container:
     name: "{{ container_name | default('ks_validator_container') }}"
-    image: "{{ image_version }}:{{ tag_version }}"
+    # image: "{{ image_version }}:{{ tag_version }}"
+    image: "{{ image_version }}:latest"
     state: started
     restart_policy: no
     # Ejecuta un comando para mantener el contenedor en ejecución (puedes ajustarlo según necesites)
