@@ -1,0 +1,25 @@
+---
+
+- name: "Validar que la variable 'os_version' esté definida"
+  assert:
+    that:
+      - os_version is defined
+    fail_msg: "La variable 'os_version' no está definida. Por favor, especifícala en tus variables."
+
+- name: "Validar que la versión del sistema operativo sea 8, 9 o 10"
+  assert:
+    that:
+      - os_version | int in [8, 9, 10]
+    fail_msg: "La versión de sistema operativo '{{ os_version }}' no es válida. Se aceptan únicamente 8, 9 o 10."
+
+- name: "Validar que la variable 'kickstart_file' esté definida"
+  assert:
+    that:
+      - kickstart_file is defined
+    fail_msg: "La variable 'kickstart_file' no está definida. Es necesario especificar la ruta al archivo Kickstart."
+
+- name: "Validar que el archivo Kickstart tenga extensión .ks"
+  assert:
+    that:
+      - kickstart_file.endswith('.ks')
+    fail_msg: "El archivo Kickstart '{{ kickstart_file }}' no tiene la extensión .ks. Asegúrate de que sea un archivo en formato Kickstart."
