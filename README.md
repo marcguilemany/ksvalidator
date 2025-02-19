@@ -5,8 +5,10 @@ Accept version rhel 8, 9 and 10
 
 create a container for validate your ks
 
+
+
 Use playbook:
 
-ansible-playbook main.yml --extra-vars -e @input_vars.yml
+ansible-playbook -c local ks_validator.yml -e @vars/inputs_vars.yml --check
 
-when input_vars.yml is on you decide os_version and kickstart_file
+when inputs_vars.yml is on you decide os_version and kickstart_file
