@@ -1,6 +1,6 @@
 ---
 
-- name: "Ejecutar ksvalidator para validar el Kickstart"
+- name: "[MOUNT_KS] Ejecutar ksvalidator para validar el Kickstart"
   community.docker.docker_container_exec:
     container: "{{ container_name | default('ks_validator_container') }}"
     command: "ksvalidator /kickstart/{{ kickstart_file | basename }}"
