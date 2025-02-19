@@ -1,0 +1,9 @@
+redhat_username: ""
+redhat_password: ""
+
+image_version:
+  '8': "registry.redhat.io/ubi8"
+  '9': "registry.redhat.io/ubi9"
+tag_version:
+  '8': "latest"
+  '9': "latest"

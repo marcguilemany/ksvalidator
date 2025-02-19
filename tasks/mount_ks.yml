@@ -1,0 +1,12 @@
+---
+
+- name: "[MOUNT_KS] Ejecutar ksvalidator para validar el Kickstart"
+  community.docker.docker_container_exec:
+    container: "{{ container_name | default('ks_validator_container') }}"
+    command: "ksvalidator /kickstart/{{ kickstart_file | basename }}"
+  environment: "{{ docker_env }}"
+  register: ksvalidator_result
+  failed_when: ksvalidator_result.rc != 0
+
+- name: "[MOUNT_KS]"
+  command: "echo {{ ksvalidator_result.stdout }}"

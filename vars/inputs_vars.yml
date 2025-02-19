@@ -1,0 +1,2 @@
+os_version: 9
+kickstart_file: "{{ playbook_dir }}/file/rhel9.ks"
