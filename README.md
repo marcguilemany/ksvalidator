@@ -5,7 +5,7 @@ La validación se realiza ejecutando el comando `ksvalidator` (parte de las herr
 Además, el playbook se encarga de limpiar el entorno al finalizar la prueba.
 
 ## Uso del Playbook
-  ansible-playbook -c local ks_validator.yml -e @vars/inputs_vars.yml -vv
+  `ansible-playbook -c local ks_validator.yml -e @vars/inputs_vars.yml -vv`
 
 
 ## Características
@@ -35,20 +35,21 @@ Además, el playbook se encarga de limpiar el entorno al finalizar la prueba.
 
 Colección community.docker:
 Instala la colección necesaria:
-    ``` ansible-galaxy collection install community.docker
+    `ansible-galaxy collection install community.docker`
 
 ## Estructura del Proyecto
 
+```plaintext
 ksvalidator/
-|---ks_validator.yml      # yml que emula al book y importa la collection, los host y las tasks/main.yml
+├── ks_validator.yml      # YML que emula el book e importa la collection, los hosts y tasks/main.yml
 ├── tasks/
 │   ├── main.yml          # Playbook principal que importa las demás tareas
 │   ├── prerequisites.yml # Validación de variables de entrada (OS version, Kickstart file)
 │   ├── mount_ks.yml      # Tareas para montar el archivo Kickstart
-│   └── container.yml     # Tareas para gestionar el contenedor: creación, registro, validación, limpieza
+│   └── container.yml     # Tareas para gestionar el contenedor: creación, registro, validación y limpieza
 ├── vars/
-│   └── inputs_vars.yml   # Archivo de variables de entrada (os_version, kickstart_file, etc.) # Posibilidad de cambiarlo por un survey en AAP
-│   └── variables.yml     # Archivo de variables globales: **redhat_username**, **redhat_password**, tag_version, image_version
+│   ├── inputs_vars.yml   # Variables de entrada (os_version, kickstart_file, etc.)
+│   └── variables.yml     # Variables globales: redhat_username, redhat_password, tag_version, image_version
 ├── file/
 │   └── archivo.ks        # Archivo Kickstart de ejemplo
 └── README.md
