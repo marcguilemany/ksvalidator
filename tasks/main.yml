@@ -13,3 +13,6 @@
 - name: "[KSVALIDATE MAIN] Mount kickstart"
   import_tasks: 'mount_ks.yml'
 
+- name: "[KSVALIDATE MAIN] Post Validate"
+  import_tasks: 'post-validate.yml'
+

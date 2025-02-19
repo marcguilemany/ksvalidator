@@ -36,14 +36,6 @@
   environment: "{{ docker_env }}"
   register: login_result
 
-# - name: "[CONTAINER] Pull the RHEL image from Red Hat Container Registry"
-#   docker_image:
-#     name: "{{ image_version }}"
-#     tag: "{{ tag_version }}"
-#     source: pull
-#   environment: "{{ docker_env }}"
-#   register: pull_result
-
 - name: "[CONTAINER] Pull the RHEL image from Red Hat Container Registry"
   docker_image:
     name: "{{ image_version[os_version | string] }}"
@@ -71,13 +63,21 @@
     command: "tail -f /dev/null"
     volumes:
       - "{{ kickstart_file | dirname }}:/kickstart:ro"
-    privileged: true
-    network_mode: host
-    cpuset_cpus: "0"
-    # Opcional: especificar un cgroup_parent adecuado (ajusta la ruta si es necesario)
-    cgroup_parent: "/sys/fs/cgroup/cpuset"
+    #Only if you need in your case
+    #privileged: true
+    #network_mode: host
+    #cpuset_cpus: "0"
+    #cgroup_parent: "/sys/fs/cgroup/cpuset"
   environment: "{{ docker_env }}"
   register: container_result
+
+- name: "Register container with Red Hat Subscription Manager"
+  community.docker.docker_container_exec:
+    container: "{{ container_name | default('ks_validator_container') }}"
+    command: >
+      subscription-manager register --username={{ redhat_username }} --password={{ redhat_password }} --auto-attach
+  environment: "{{ docker_env }}"
+  register: registration_result
 
 - name: "[CONTAINER] Install tools in container"
   community.docker.docker_container_exec:

@@ -7,3 +7,6 @@
   environment: "{{ docker_env }}"
   register: ksvalidator_result
   failed_when: ksvalidator_result.rc != 0
+
+- name: "[MOUNT_KS]"
+  command: "echo {{ ksvalidator_result.stdout }}"

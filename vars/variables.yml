@@ -1,11 +1,9 @@
-redhat_username: "marc.guilemany"
-redhat_password: "3Spaguetty"
+redhat_username: ""
+redhat_password: ""
 
 image_version:
   '8': "registry.redhat.io/ubi8"
   '9': "registry.redhat.io/ubi9"
-  '10': "registry.redhat.io/ubi10"
 tag_version:
   '8': "latest"
   '9': "latest"
-  '10': "latest"

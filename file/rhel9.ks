@@ -1,13 +1,11 @@
 #version=RHEL9
-# Indica que se realizará una instalación nueva
-install
 
 # Idioma y configuración regional
 lang en_US.UTF-8
 keyboard us
 
 # Zona horaria (ajusta la zona horaria según tu ubicación)
-timezone America/New_York --isUtc --ntp
+timezone America/New_York --isUtc --ntpservers=pool.ntp.org
 
 # Configuración de red (ajusta el dispositivo, hostname y opciones según tu entorno)
 network --bootproto=dhcp --device=eth0 --activate --hostname=rhel9.example.com

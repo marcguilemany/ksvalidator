@@ -1,1 +1,11 @@
 ---
+
+- name: "[POST-VALIDATE] Remove container after validation"
+  community.docker.docker_container:
+    name: "{{ container_name | default('ks_validator_container') }}"
+    state: absent
+  environment: "{{ docker_env }}"
+
+- name: "[PODMAN] Stop Podman system service"
+  shell: "pkill -f 'podman system service'"
+  ignore_errors: yes
