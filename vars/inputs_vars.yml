@@ -1,2 +1,2 @@
 os_version: 9
-kickstart_file: "/ruta/al/archivo.ks"
+kickstart_file: "{{ playbook_dir }}/file/rhel9.ks"
