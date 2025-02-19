@@ -18,3 +18,7 @@ Use playbook:
 ansible-playbook -c local ks_validator.yml -e @vars/inputs_vars.yml --check
 
 when inputs_vars.yml is on you decide os_version and kickstart_file
+
+When [CONTAINER] Create container for Kickstart validation" to create in Local mode, use this options:
+    privileged: true
+    network_mode: host
