@@ -2,7 +2,7 @@
 
 - name: '[KS VARS][MAIN] Load variables from files'
   include_vars:
-    dir: 'vars'
+    dir: '../vars'
 
 - name: "[KSVALIDATE MAIN] Preliminary checks"
   import_tasks: 'prerequisites.yml'

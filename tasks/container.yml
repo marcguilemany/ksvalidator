@@ -10,7 +10,7 @@
   package:
     name: podman
     state: present
-  when: podman_installed.rc != 0
+  when: (podman_installed.rc | default(1)) != 0
 
 - name: "[CONTAINER] Guarantee Podman configure to use compatibility mode docker"
   shell: "nohup podman system service -t 0 > /dev/null 2>&1 &"
