@@ -1,17 +1,11 @@
 redhat_username: "marc.guilemany"
 redhat_password: "3Spaguetty"
-ubi9: "registry.redhat.io/ubi9"
-ubi8: "registry.redhat.io/ubi8"
-ubi10: "registry.redhat.io/ubi10"
-tag8: "8"
-tag9: "9.5-1739751568"
-tag10: "10"
 
 image_version:
-  '8': "{{ ubi8 }}"
-  '9': "{{ ubi9 }}"
-  '10': "{{ ubi10 }}"
+  '8': "registry.redhat.io/ubi8"
+  '9': "registry.redhat.io/ubi9"
+  '10': "registry.redhat.io/ubi10"
 tag_version:
-  '8': "{{ tag8 }}"
-  '9': "{{ tag9 }}"
-  '10': "{{ tag10 }}"
+  '8': "latest"
+  '9': "latest"
+  '10': "latest"

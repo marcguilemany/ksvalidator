@@ -46,8 +46,8 @@
 
 - name: "[CONTAINER] Pull the RHEL image from Red Hat Container Registry"
   docker_image:
-    name: "{{ image_version }}"
-    tag: latest
+    name: "{{ image_version[os_version | string] }}"
+    tag: "{{ tag_version[os_version | string] }}"
     source: pull
   environment: "{{ docker_env }}"
   register: pull_result
@@ -56,7 +56,7 @@
   docker_container:
     name: "{{ container_name | default('ks_validator_container') }}"
     # image: "{{ image_version }}:{{ tag_version }}"
-    image: "{{ image_version }}:latest"
+    image: "{{ image_version[os_version | string] }}"
     state: started
     restart_policy: no
     # Ejecuta un comando para mantener el contenedor en ejecución (puedes ajustarlo según necesites)
