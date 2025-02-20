@@ -82,6 +82,6 @@
 - name: "[CONTAINER] Install tools in container"
   community.docker.docker_container_exec:
     container: "{{ container_name | default('ks_validator_container') }}"
-    command: "microdnf install -y pykickstart"
+    command: "dnf install -y pykickstart" #ubi9 not containt microdnf
   environment: "{{ docker_env }}"
   register: install_ksvalidator
