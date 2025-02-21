@@ -6,7 +6,8 @@ Este proyecto sigue el formato de [Keep a Changelog](https://keepachangelog.com/
 
 ## [Unreleased]
 ### Added
-- Añadir solucion al mal formateo de kicstart 
+- Añadir solucion al mal formateo de kicstart
+- Desregistrar el container de RedHat antes de finalizar
 
 ### Changed
 - (Cambios en curso.)
