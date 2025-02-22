@@ -8,6 +8,7 @@ Este proyecto sigue el formato de [Keep a Changelog](https://keepachangelog.com/
 ### Added
 - Añadir solucion al mal formateo de kicstart (dos2unix)
 - Desregistrar el container de RedHat antes de finalizar
+- Añadir Vault para password.
 
 ### Changed
 - (Cambios en curso.)
